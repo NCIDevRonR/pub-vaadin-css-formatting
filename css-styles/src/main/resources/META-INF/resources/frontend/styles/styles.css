@@ -1,0 +1,19 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : May 22, 2024, 2:59:34 PM
+    Author     : NCI Admin
+*/
+.red-bold-text {
+    color: red;
+    font-weight: bold;
+}
+.black-bold-text {
+    color: black;
+    font-weight: bold;
+}
+.blue-background-row {
+    background-color: blue;
+}
