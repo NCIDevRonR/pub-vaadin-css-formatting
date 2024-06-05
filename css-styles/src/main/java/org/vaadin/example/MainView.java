@@ -3,14 +3,16 @@ package org.vaadin.example;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Label;
-import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.data.renderer.ComponentRenderer;
 
 import java.util.List;
 
 @Route
+@CssImport(
+        themeFor = "vaadin-grid",
+        value = "./styles/styles.css"
+)
 @CssImport("./styles/styles.css")
 public class MainView extends VerticalLayout {
 
@@ -19,16 +21,10 @@ public class MainView extends VerticalLayout {
         grid.setItems(getPeople());
 
         Label lblHiya = new Label("What's going on, folks?");
-        grid.setItemDetailsRenderer(new ComponentRenderer<>(person -> {
-            Span span = new Span(person.getName());
-            if (person.getName().equalsIgnoreCase("John Doe")) {
-                span.addClassName("blue-background-row");
-            }
-            return span;
-        }));
         lblHiya.addClassName("red-bold-text");
 
         add(grid, lblHiya);
+        grid.setClassNameGenerator(person -> person.getName().equalsIgnoreCase("John Doe") ? "blue-background-row" : null);
     }
 
     private List<Person> getPeople() {
